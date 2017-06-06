@@ -16,7 +16,6 @@ public class DBUtil {
     public static final String name = "com.mysql.jdbc.Driver";
     public static final String user = "root";
     public static final String password = "123456";
-    public static final String sh = "1";
 
     public Connection conn = null;
     public PreparedStatement pst = null;

@@ -4,6 +4,7 @@ import cn.swjtu.gis.util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,8 @@ import java.util.Map;
  */
 public class CheckInfo {
 
-    private static final String SQL = "select * from gis where name =";//------表名视具体数据表而定
+    private static final String SQL1 = "select * from gis where name =";//------表名视具体数据表而定
+    private static final String SQL2 = "select state from gis";
     private DBUtil dbUtil;
     static DBUtil db1 = null;
     static DBUtil db2 = null;
@@ -27,7 +29,7 @@ public class CheckInfo {
         Map<String, String> map = new HashMap<>();
         String attribute = null;
         String state = null;
-        db1 = new DBUtil(SQL + getName());
+        db1 = new DBUtil(SQL1+ getName());
         try{
             rs = db1.pst.executeQuery();
             while (rs.next()) {
@@ -38,6 +40,26 @@ public class CheckInfo {
             map.put("状态", state);
             rs.close();
             db1.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+
+    public Map<String, ArrayList<String>> getStateInfo() throws Exception {
+        Map<String, ArrayList<String>> map = new HashMap<>();
+        ArrayList<String> as = new ArrayList<>();
+        String state = null;
+        db2 = new DBUtil(SQL2);
+        try {
+            rs = db2.pst.executeQuery();
+            while (rs.next()) {
+                as.add(rs.getString(0));
+            }
+            map.put("状态", as);
+            rs.close();
+            db2.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

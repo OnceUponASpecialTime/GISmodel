@@ -5,12 +5,16 @@ package cn.swjtu.gis.main;
  */
 public class TriggerEvent extends Thread {
 
-    private CheckInfo checkInfo;
+    TaskServer ts = null;
+    CheckInfo checkInfo = null;
 
-    @Override
-    public void run() {
-        while (true) {
+    public TriggerEvent (TaskServer ts, CheckInfo ci) {
+        this.ts = ts;
+        this.checkInfo = ci;
+    }
 
-        }
+
+    public void answerEvent() {
+
     }
 }

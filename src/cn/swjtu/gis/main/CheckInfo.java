@@ -47,7 +47,7 @@ public class CheckInfo {
     }
 
 
-    public Map<String, ArrayList<String>> getStateInfo() throws Exception {
+    public Map<String, ArrayList<String>> getStateInfo(){
         Map<String, ArrayList<String>> map = new HashMap<>();
         ArrayList<String> as = new ArrayList<>();
         String state = null;

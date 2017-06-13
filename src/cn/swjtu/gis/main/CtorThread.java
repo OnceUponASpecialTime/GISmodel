@@ -14,9 +14,10 @@ public class CtorThread extends Thread {
 
     public void run() {
         while (true) {
-            triggerEvent.answerEvent();
+            triggerEvent.checkEvent();
+
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
             } catch (Exception e) {
                 e.printStackTrace();
             }

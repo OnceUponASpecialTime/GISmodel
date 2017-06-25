@@ -2,7 +2,6 @@ package cn.swjtu.gis.main;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
@@ -10,7 +9,7 @@ import java.io.FileReader;
  */
 public class CallJS {
 
-    private static final String jsFileName = "";
+    private static final String jsFileName = "D:\\Ccode\\Offline_api\\baidumapv2.0.3\\background.js";
 
     public void getJS() {
         ScriptEngineManager manager = new ScriptEngineManager();

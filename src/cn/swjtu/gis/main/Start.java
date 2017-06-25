@@ -39,20 +39,23 @@ import java.awt.event.ActionListener;
 
 
 public class Start extends JFrame{
+
+    CallJS callJS = null;
+
     public Start() {
         setTitle("GIS展示");
         Container container = getContentPane();
         JButton jButton = new JButton("显示地图");
         container.add(BorderLayout.SOUTH, jButton);
-        ImageIcon icon = new ImageIcon("C:\\Users\\DELL\\Pictures\\Saved Pictures\\1.jpg");
-        JLabel jLabel = new JLabel(icon);
+        JLabel jLabel = new JLabel();
         jLabel.setHorizontalAlignment(SwingConstants.CENTER);
         container.add(jLabel);
         jButton.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
+                        jLabel.setIcon(new ImageIcon("C:\\Users\\DELL\\Pictures\\Saved Pictures\\1.jpg"));
+                        callJS.getJS();
                     }
                 }
         );
